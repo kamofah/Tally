@@ -1,3 +1,4 @@
+import { formatPuzzleDate, formatPuzzleNumber } from '../utils/formatPuzzleMetadata'
 import './Home.css'
 import { Link } from 'react-router'
 
@@ -13,8 +14,8 @@ const Home = () => {
             <Link className="button button-filled" to="/game">Play</Link>
         </div>
         <div className="footer">
-            <p className="date">June 18, 2026</p>
-            <p className="number">Puzzle No. 1</p>
+            <p className="date">{formatPuzzleDate(new Date())}</p>
+            <p className="number">Puzzle No. {formatPuzzleNumber()}</p>
             <p className="built">Built by Kwaku Amofah-Boafo</p>
             <p className="copyright">© Tally</p>
         </div>
