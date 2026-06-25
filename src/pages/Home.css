@@ -8,6 +8,14 @@
     gap: 32px;
   }
   
+  .home-main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 32px;
+  }
+  
   .header {
     display: flex;
     flex-direction: column;
@@ -38,10 +46,11 @@
   .buttons {
     display: flex;
     gap: 10px;
+    width: 100%;
   }
   
   .button {
-    width: 150px;
+    width: 100%;
     border: 1px solid #000;
     background-color: transparent;
     padding: 15px 40px;
