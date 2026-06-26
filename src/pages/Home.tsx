@@ -4,7 +4,7 @@ import {
 } from "../utils/formatPuzzleMetadata";
 import "./Home.css";
 import { Link } from "react-router";
-import TallyIcon from "../components/icons/TallyIcon";
+import { TallyIcon } from "../components/icons";
 
 const Home = () => {
   return (
