@@ -23,6 +23,11 @@
     justify-content: center;
     gap: 24px;
   }
+
+  .tallyIcon {
+    width: 120px;
+    height: 120px;
+  }
   
   .title {
     font-family: 'Source Serif 4', serif;
