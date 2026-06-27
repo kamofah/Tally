@@ -1,44 +1,54 @@
-import "./Auth.css";
+import styles from "./Auth.module.css";
 import GoogleIcon from "../components/icons/GoogleIcon";
 import AppleIcon from "../components/icons/AppleIcon";
 
+const OAuthButton = ({
+  icon,
+  text,
+}: {
+  icon: React.ReactNode;
+  text: string;
+}) => {
+  return (
+    <button className={styles.oauthButton}>
+      <div className={styles.oauthIcon}>{icon}</div>
+      <p className={styles.oauthButtonText}>{text}</p>
+    </button>
+  );
+};
+
 const Auth = () => {
   return (
-    <div className="container">
+    <div className={styles.container}>
       <main>
-        <div className="header">
-          <h1 className="title">Tally</h1>
-          <p className="description">
+        <div className={styles.header}>
+          <h1 className={styles.title}>Tally</h1>
+          <p className={styles.description}>
             Log in or create an account to get started.
           </p>
         </div>
-        <div className="form">
-          <label htmlFor="email">Email address</label>
+        <form className={styles.formContainer}>
+          <label htmlFor="email" className={styles.label}>
+            Email address
+          </label>
           <input id="email" type="email" placeholder="Email" />
-          <button className="button button-filled" type="submit">
+          <button
+            className={`${styles.button} ${styles.buttonFilled}`}
+            type="submit"
+          >
             Login
           </button>
-        </div>
-        <div className="separator">
+        </form>
+        <div className={styles.separator}>
           <hr />
-          <p className="separator-text">or</p>
+          <p className={styles.separatorText}>or</p>
           <hr />
         </div>
-        <div className="oauth-buttons">
-          <button className="oauth-button">
-            <div className="oauth-icon">
-              <GoogleIcon />{" "}
-            </div>{" "}
-            <p className="oauth-button-text">Continue with Google</p>
-          </button>
-          <button className="oauth-button">
-            <div className="oauth-icon">
-              <AppleIcon />{" "}
-            </div>{" "}
-            <p className="oauth-button-text">Continue with Apple</p>
-          </button>
+        <div className={styles.oauthButtons}>
+          <OAuthButton icon={<GoogleIcon />} text="Continue with Google" />
+          <OAuthButton icon={<AppleIcon />} text="Continue with Apple" />
         </div>
-        <p className="terms">
+        <p className={styles.terms}>
           By continuing, you agree to the Terms of Sale, Terms of Service, and
           Privacy Policy.
         </p>

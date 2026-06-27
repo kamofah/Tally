@@ -1,32 +1,49 @@
 .container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    background-color: #f0f0f0;
-    gap: 32px;
-  }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #f0f0f0;
+  gap: 32px;
+}
 
-  main {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    gap: 32px;
-    max-width: 400px;
-  }
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+}
 
-  .oauth-buttons {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    width: 100%;
-  }
+.title {
+  font-family: 'Source Serif 4', serif;
+  font-size: 5rem;
+  font-weight: 700;
+  color: #000;
+  text-transform: uppercase;
+  margin: none;
+}
 
-  .oauth-button {
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 32px;
+  max-width: 400px;
+}
+
+.oauthButtons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+}
+
+  .oauthButton {
     width: 100%;
     border: 1px solid #000;
     display: flex;
@@ -41,14 +58,28 @@
     color: #000;
     cursor: pointer;
     text-decoration: none;
-
   }
-  .button-filled {
+
+  .button {
+    width: 100%;
+    border: 1px solid #000;
+    background-color: transparent;
+    padding: 15px 40px;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #000;
+    text-transform: capitalize;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+  }
+
+  .buttonFilled {
     background-color: #000;
     color: #fff;
   }
 
-  .form {
+  .formContainer {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -82,6 +113,7 @@
     font-size: 2rem;
     font-weight: 500;
     color: #000;
+    line-height: 1.3;
   }
 
   .separator {
@@ -98,13 +130,13 @@
     background-color: #000;
   }
 
-  .separator-text {
+  .separatorText {
     font-size: 0.8rem;
     color: #666;
     padding: 0 10px;
   }
 
-  .oauth-icon {
+  .oauthIcon {
     width: 20px;
     height: 20px;
     fill: #000;
@@ -115,14 +147,14 @@
     transform: translateY(-2px);
   }
 
-  .oauth-icon svg {
+  .oauthIcon svg {
     display: block;
     width: 100%;
     height: 100%;
     
   }
 
-  .oauth-button-text {
+  .oauthButtonText {
     margin: 0;
     font-size: 1rem;
     font-weight: 500;
