@@ -1,7 +1,9 @@
+import styles from "../../pages/Home.module.css";
+
 const TallyIcon = () => {
   return (
     <svg
-      className="tallyIcon"
+      className={styles.tallyIcon}
       viewBox="0 0 100 100"
       xmlns="http://www.w3.org/2000/svg"
     >
