@@ -1,0 +1,37 @@
+.boardTile {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    width: 2.5em;
+    height: 2.5em;    
+    border-radius: 8px;
+    font-size: 1.6em;
+    font-family: 'Rethink Sans';
+    font-weight: bold;
+    text-transform: uppercase;
+    color: var(--primary-color);
+    border: none;
+}
+
+.position {
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    bottom: 2px;
+    right: 2px;
+    font-size: 10px;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.letterTile {
+    background-color: var(--quaternary-color);
+    border: 2px solid var(--tertiary-color);
+    cursor: pointer;
+}
+
+.costTile {
+    background-color: var(--tertiary-color);
+}
