@@ -1,16 +1,16 @@
-const formatGameBudget = (budget: number) => {
-    if (budget < 0) {
-        return `-$${-budget}`;
-    }
-    return `$${budget}`;
+const formatGameBudget = (budget: number): string => {
+  if (budget < 0) {
+    return `-$${Math.abs(budget)}`;
+  }
+  return `$${budget}`;
 }
 
-const formatGameLetterCount = (letterCount: number) => {
-    return letterCount.toString();
+const formatGameLetterCount = (letterCount: number): string => {
+  return letterCount.toString();
 }
 
-const formatGameAttempts = (attempts: number) => {
-    return `${attempts.toString()}/6`;
+const formatGameAttempts = (attempts: number): string => {
+  return `${attempts}/6`;
 }
 
 export { formatGameBudget, formatGameLetterCount, formatGameAttempts };

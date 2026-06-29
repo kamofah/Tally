@@ -1,6 +1,6 @@
 const PUZZLE_EPOCH = new Date('2026-06-21');
 
-export function formatPuzzleDate(date: Date) {
+export  const formatPuzzleDate = (date: Date): string => {
     return date.toLocaleDateString('en-US', {
         month: 'long',
         day: 'numeric',
@@ -8,9 +8,9 @@ export function formatPuzzleDate(date: Date) {
     });
   }
   
-  export function formatPuzzleNumber() {
-    const TodaysDate = new Date();
-    const differenceInDays = TodaysDate.getTime() - PUZZLE_EPOCH.getTime();
-    const puzzleNumber = Math.floor(differenceInDays / (1000 * 60 * 60 * 24));
-    return puzzleNumber;
-  }
+export const formatPuzzleNumber = (): number => {
+  const todayDate = new Date();
+  const differenceInDays = todayDate.getTime() - PUZZLE_EPOCH.getTime();
+  const puzzleNumber = Math.floor(differenceInDays / (1000 * 60 * 60 * 24));
+  return puzzleNumber;
+}
