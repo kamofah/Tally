@@ -1,5 +1,5 @@
 import type { GameState, GameAction, GameBoardData } from "../types/game";
-import "./GameBoard.css";
+import styles from "./GameBoard.module.css";
 import BoardTile from "./ui/BoardTile";
 
 const getTilePosition = (letter: string, selectedLetters: string[]) => {
@@ -22,13 +22,13 @@ const GameBoard = ({
   gameBoard: GameBoardData;
 }) => {
   return (
-    <div className="gameBoardContainer">
-      <div className="costColumn">
+    <div className={styles.gameBoardContainer}>
+      <div className={styles.costColumn}>
         {Object.keys(gameBoard).map((price) => (
           <BoardTile key={price} letter={price} variant="cost" />
         ))}
       </div>
-      <div className="letterGrid">
+      <div className={styles.letterGrid}>
         {Object.entries(gameBoard).flatMap(([price, letters]) =>
           letters.map((letter) => (
             <BoardTile
