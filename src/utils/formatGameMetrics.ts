@@ -1,3 +1,5 @@
+import { MAX_ATTEMPTS } from "../data/constants";
+
 const formatGameBudget = (budget: number): string => {
   if (budget < 0) {
     return `-$${Math.abs(budget)}`;
@@ -10,7 +12,7 @@ const formatGameLetterCount = (letterCount: number): string => {
 }
 
 const formatGameAttempts = (attempts: number): string => {
-  return `${attempts}/6`;
+  return `${attempts}/${MAX_ATTEMPTS}`;
 }
 
 export { formatGameBudget, formatGameLetterCount, formatGameAttempts };
