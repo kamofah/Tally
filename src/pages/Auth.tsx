@@ -1,3 +1,4 @@
+import React from "react";
 import styles from "./Auth.module.css";
 import GoogleIcon from "../components/icons/GoogleIcon";
 import AppleIcon from "../components/icons/AppleIcon";
