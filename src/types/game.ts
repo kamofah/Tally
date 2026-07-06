@@ -11,6 +11,8 @@ type GameState = {
   attempts: number;
   budget: number;
   letterCount: number;
+  startingBudget: number;
+  startingLetterCount: number;
   selectedLetters: string[];
   buttonState: ButtonState;
   gameStatus: GameStatus;
@@ -18,7 +20,7 @@ type GameState = {
 };
 
 type GameAction = 
-| {type: "TOGGLE_LETTER", payload: {letter: string, budget: number}} 
+| {type: "TOGGLE_LETTER", payload: {letter: string, budget: number}}
 | {type: "SUBMIT_WORD"}
 | {type: "CLEAR_SELECTED_LETTERS"}
 
