@@ -2,10 +2,22 @@ import type { GameState, GameAction, GameBoardData } from "../types/game";
 import styles from "./GameBoard.module.css";
 import BoardTile from "./ui/BoardTile";
 
-const getTilePosition = (letter: string, selectedLetters: string[]) => {
+const getSelectedPosition = (letter: string, selectedLetters: string[]) => {
   return selectedLetters.includes(letter)
     ? selectedLetters.indexOf(letter) + 1
     : undefined;
+};
+
+const getSolutionPosition = (letter: string, solution: string) => {
+  const index = solution.toUpperCase().indexOf(letter.toUpperCase());
+  return index === -1 ? undefined : index + 1;
+};
+
+const getTileDisplayPosition = (letter: string, state: GameState) => {
+  if (state.uncoveredLetters.includes(letter)) {
+    return getSolutionPosition(letter, state.solution);
+  }
+  return getSelectedPosition(letter, state.selectedLetters);
 };
 
 const getTilePrice = (price: string) => {
@@ -34,8 +46,10 @@ const GameBoard = ({
             <BoardTile
               key={letter}
               letter={letter}
-              variant="letter"
-              selectedPosition={getTilePosition(letter, state.selectedLetters)}
+              variant={
+                state.uncoveredLetters.includes(letter) ? "uncovered" : "letter"
+              }
+              selectedPosition={getTileDisplayPosition(letter, state)}
               onClick={() => {
                 dispatch({
                   type: "TOGGLE_LETTER",
