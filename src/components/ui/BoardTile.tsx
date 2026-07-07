@@ -9,15 +9,15 @@ const BoardTile = ({
   letter: string;
   selectedPosition?: number;
   onClick?: () => void;
-  variant?: "letter" | "cost";
+  variant?: "letter" | "cost" | "uncovered";
 }) => {
   return (
     <button
-      className={`${styles.boardTile} ${variant === "letter" ? styles.letterTile : styles.costTile}`}
+      className={`${styles.boardTile} ${variant === "letter" ? styles.letterTile : variant === "cost" ? styles.costTile : styles.uncoveredTile}`}
       onClick={onClick}
     >
       {letter}
-      {selectedPosition && (
+      {selectedPosition !== undefined && (
         <p className={styles.position}>{selectedPosition}</p>
       )}
     </button>
