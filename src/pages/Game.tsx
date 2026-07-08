@@ -1,5 +1,5 @@
 import styles from "./Game.module.css";
-import { useReducer } from "react";
+import { useMemo, useReducer } from "react";
 import GameBoard from "../components/GameBoard";
 import { formatPuzzleNumber } from "../utils/formatPuzzleMetadata";
 import { InfoIcon, StatsIcon, SettingsIcon } from "../components/icons";
@@ -9,8 +9,9 @@ import {
   formatGameBudget,
   formatGameLetterCount,
 } from "../utils/formatGameMetrics";
-import type { GameState, GameBoardData, GameDispatch } from "../types/game";
-import gameReducer, { initialGameState } from "../reducers/gameReducer";
+import type { GameState, GameDispatch } from "../types/game";
+import gameReducer from "../reducers/gameReducer";
+import { generatePuzzle } from "../utils/puzzleConfig";
 
 /* ------------------------------------------------------------------ */
 /* Small Components                                                    */
@@ -133,15 +134,19 @@ const GameMetrics = ({
 /* ------------------------------------------------------------------ */
 
 const Game = () => {
-  const gameBoard: GameBoardData = {
-    $5: ["Q", "M", "A", "Z"],
-    $4: ["T", "E", "K", "R"],
-    $3: ["B", "L", "O", "X"],
-    $2: ["F", "P", "N", "S"],
-    $1: ["D", "U", "C", "W"],
-  };
-
-  const [state, dispatch] = useReducer(gameReducer, initialGameState);
+  const puzzle = useMemo(() => generatePuzzle(), []);
+  const [state, dispatch] = useReducer(gameReducer, puzzle, (puzzle) => ({
+    attempts: 1,
+    budget: puzzle.budget,
+    letterCount: puzzle.letterCount,
+    startingBudget: puzzle.budget,
+    startingLetterCount: puzzle.letterCount,
+    uncoveredLetters: [],
+    selectedLetters: [],
+    buttonState: "disabled",
+    gameStatus: "pending",
+    solution: puzzle.solution,
+  }));
 
   return (
     <div className={styles.gameContainer}>
@@ -152,10 +157,14 @@ const Game = () => {
           budget={state.budget}
           attempts={state.attempts}
         />
-        <GameBoard state={state} dispatch={dispatch} gameBoard={gameBoard} />
+        <GameBoard
+          state={state as GameState}
+          dispatch={dispatch}
+          gameBoard={puzzle.gameBoard}
+        />
         <div className={styles.gameInputContainer}>
           <GameWord word={state.selectedLetters.join("")} />
-          <GameButton state={state} dispatch={dispatch} />
+          <GameButton state={state as GameState} dispatch={dispatch} />
         </div>
       </main>
       <GameFooter />
