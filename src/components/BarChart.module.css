@@ -1,0 +1,27 @@
+.row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 6px;
+  }
+  
+  .label {
+    width: 18px;
+    text-align: right;
+  }
+  
+  .bar {
+    min-width: 36px;
+    height: 32px;
+    background: #787c7e;
+    color: white;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding-right: 8px;
+    font-weight: 700;
+  }
+  
+  .bar.active {
+    background: #6aaa64;
+  }
