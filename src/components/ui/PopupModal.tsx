@@ -16,7 +16,9 @@ const PopupModal = ({
     <dialog className={styles.popupModal} open={open} onClose={onClose}>
       <div className={styles.header}>
         <h1 className={styles.title}>{title}</h1>
-        <CloseIcon state={open} setState={onClose} />
+        <button className={styles.closeButton} onClick={() => onClose()}>
+          <CloseIcon />
+        </button>
       </div>
       {children}
     </dialog>
