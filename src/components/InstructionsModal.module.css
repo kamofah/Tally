@@ -1,0 +1,203 @@
+.content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 12px 8px 4px;
+    color: var(--primary-color);
+}
+
+.intro {
+    font-size: 1.1rem;
+    line-height: 1.35;
+}
+
+.divider {
+    border: none;
+    border-top: 1px solid var(--border-color);
+    width: 100%;
+}
+
+/* Steps */
+
+.steps {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.step {
+    display: grid;
+    grid-template-columns: 36px 1fr auto;
+    column-gap: 16px;
+    align-items: center;
+}
+
+.stepNumber {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: var(--tertiary-color);
+    font-weight: 600;
+}
+
+.stepText {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.stepTitle {
+    font-family: 'Source Serif 4', serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+.stepDescription {
+    font-size: 0.95rem;
+    line-height: 1.35;
+}
+
+.stepIllustration {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.stepTiles {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.tileRow {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+}
+
+/* Budget illustration */
+
+.budgetExample {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+}
+
+.budgetValueGroup {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.budgetLabel {
+    font-size: 0.8rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.budgetValue {
+    font-size: 2.2rem;
+    font-weight: 700;
+    letter-spacing: -0.04em;
+}
+
+.budgetArrow {
+    font-size: 1.5rem;
+    color: var(--disabled-state-color);
+}
+
+/* Examples */
+
+.examples {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.examplesTitle {
+    font-family: 'Source Serif 4', serif;
+    font-size: 1.6rem;
+    font-weight: 700;
+}
+
+.examplesIntro {
+    font-size: 1rem;
+}
+
+.exampleRow {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    column-gap: 24px;
+    align-items: center;
+}
+
+.exampleDescription {
+    font-size: 0.95rem;
+    line-height: 1.35;
+}
+
+/* Tip */
+
+.tip {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 16px;
+}
+
+.tipIcon {
+    flex-shrink: 0;
+    width: 32px;
+    height: 32px;
+    fill: none;
+    stroke: var(--primary-color);
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    cursor: default;
+}
+
+.tipText {
+    font-size: 0.95rem;
+    line-height: 1.35;
+}
+
+@media (max-width: 768px) {
+    .content {
+        gap: 16px;
+        padding: 8px 0 0;
+    }
+
+    .intro {
+        font-size: 1rem;
+    }
+
+    .step {
+        grid-template-columns: 32px 1fr;
+        row-gap: 12px;
+    }
+
+    .stepNumber {
+        width: 32px;
+        height: 32px;
+    }
+
+    .stepIllustration {
+        grid-column: 2;
+        justify-content: flex-start;
+    }
+
+    .exampleRow {
+        grid-template-columns: 1fr;
+        row-gap: 8px;
+    }
+
+    .budgetValue {
+        font-size: 1.8rem;
+    }
+}

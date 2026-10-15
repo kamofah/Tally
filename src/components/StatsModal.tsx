@@ -33,7 +33,15 @@ const formatCountdown = (milliseconds: number) => {
     .join(":");
 };
 
-const StatsModal = ({ data }: { data: PlayerStats }) => {
+const StatsModal = ({
+  data,
+  setShowStatsModal,
+  open,
+}: {
+  data: PlayerStats;
+  setShowStatsModal: () => void;
+  open: boolean;
+}) => {
   const [time, setTime] = useState(() => calculateTimeBetweenTallies());
 
   useEffect(() => {
@@ -45,7 +53,7 @@ const StatsModal = ({ data }: { data: PlayerStats }) => {
   }, []);
 
   return (
-    <PopupModal open={true} onClose={() => {}} title="Statistics">
+    <PopupModal open={open} onClose={setShowStatsModal} title="Statistics">
       <div className={styles.statsModalContainer}>
         <div className={styles.statsContainer}>
           <MetricCounter label="Played" value={data.gamesPlayed.toString()} />
