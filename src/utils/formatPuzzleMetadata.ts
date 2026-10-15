@@ -1,4 +1,6 @@
-const PUZZLE_EPOCH = new Date("2026-06-21");
+import { PUZZLE_EPOCH_DATE } from "../data/constants";
+
+const PUZZLE_EPOCH = new Date(PUZZLE_EPOCH_DATE);
 
 export const formatPuzzleDate = (date: Date): string => {
   return date.toLocaleDateString("en-US", {

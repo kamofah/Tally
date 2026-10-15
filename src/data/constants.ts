@@ -1,3 +1,4 @@
 const MAX_ATTEMPTS = 6;
+const PUZZLE_EPOCH_DATE = "2026-10-07";
 
-export { MAX_ATTEMPTS };
+export { MAX_ATTEMPTS, PUZZLE_EPOCH_DATE };
