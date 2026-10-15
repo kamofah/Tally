@@ -6,6 +6,10 @@ type GameStatus = "pending" | "won" | "lost";
 
 type ButtonState = "disabled" | "clear" | "submit";
 
+// A tile whose colour changed on the latest submission, and the variant it
+// had before, so the board can animate the change.
+type RevealedLetter = { letter: string; from: "letter" | "misplaced" };
+
 type GameState = {
   attempts: number;
   budget: number;
@@ -13,6 +17,9 @@ type GameState = {
   startingBudget: number;
   startingLetterCount: number;
   uncoveredLetters: string[];
+  misplacedLetters: string[];
+  absentLetters: string[];
+  revealedLetters: RevealedLetter[];
   selectedLetters: string[];
   buttonState: ButtonState;
   gameStatus: GameStatus;
@@ -31,4 +38,5 @@ export type {
   GameStatus,
   ButtonState,
   GameDispatch,
+  RevealedLetter,
 };
