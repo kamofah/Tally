@@ -7,10 +7,10 @@ const TallyIcon = () => {
       viewBox="0 0 100 100"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <rect x="10" y="10" width="14" height="80" rx="4" fill="#111111" />
-      <rect x="30" y="10" width="14" height="80" rx="4" fill="#111111" />
-      <rect x="50" y="10" width="14" height="80" rx="4" fill="#111111" />
-      <rect x="70" y="10" width="14" height="80" rx="4" fill="#111111" />
+      <rect x="10" y="10" width="14" height="80" rx="4" fill="currentColor" />
+      <rect x="30" y="10" width="14" height="80" rx="4" fill="currentColor" />
+      <rect x="50" y="10" width="14" height="80" rx="4" fill="currentColor" />
+      <rect x="70" y="10" width="14" height="80" rx="4" fill="currentColor" />
 
       <rect
         x="43"
@@ -18,7 +18,7 @@ const TallyIcon = () => {
         width="14"
         height="120"
         rx="4"
-        fill="#111111"
+        fill="currentColor"
         transform="rotate(50, 50, 50)"
       />
     </svg>
