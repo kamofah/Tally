@@ -1,14 +1,33 @@
 @import url('https://fonts.googleapis.com/css2?family=Rethink+Sans:ital,wght@0,400..800;1,400..800&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap');
 
+/* --primary-color is the ink (text, icons, solid buttons) and --secondary-color
+   is the page background, so "solid" buttons invert automatically in dark mode.
+   Text that sits on a green/yellow/grey fill uses --on-state-color, which stays
+   light in every theme. The active theme is set by src/utils/theme.ts. */
 :root {
+  color-scheme: light;
   --primary-color: #000;
   --secondary-color: #f0f0f0;
+  --surface-color: #fff;
   --border-color: #d3d6da;
   --tertiary-color: #e5e7eb;
   --quaternary-color: #f9fafb;
+  --muted-color: #666;
+  --on-state-color: #f0f0f0;
   --success-state-color: #7FBF5B;
   --reset-state-color: #D4A017;
   --disabled-state-color: #787878;
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --primary-color: #f0f0f0;
+  --secondary-color: #121212;
+  --surface-color: #1e1e1e;
+  --border-color: #3a3a3c;
+  --tertiary-color: #2c2c2e;
+  --quaternary-color: #1a1a1a;
+  --muted-color: #a1a1a6;
 }
 
 *, *::before, *::after {
@@ -19,4 +38,6 @@
 
 body {
   font-family: 'Rethink Sans', sans-serif;
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
 }
