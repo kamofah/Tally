@@ -20,6 +20,13 @@ const getTileDisplayPosition = (letter: string, state: GameState) => {
   return getSelectedPosition(letter, state.selectedLetters);
 };
 
+const getTileVariant = (letter: string, state: GameState) => {
+  if (state.uncoveredLetters.includes(letter)) return "uncovered";
+  if (state.misplacedLetters.includes(letter)) return "misplaced";
+  if (state.absentLetters.includes(letter)) return "absent";
+  return "letter";
+};
+
 const getTilePrice = (price: string) => {
   return parseInt(price.replace("$", ""));
 };
@@ -42,22 +49,36 @@ const GameBoard = ({
       </div>
       <div className={styles.letterGrid}>
         {Object.entries(gameBoard).flatMap(([price, letters]) =>
-          letters.map((letter) => (
-            <BoardTile
-              key={letter}
-              letter={letter}
-              variant={
-                state.uncoveredLetters.includes(letter) ? "uncovered" : "letter"
-              }
-              selectedPosition={getTileDisplayPosition(letter, state)}
-              onClick={() => {
-                dispatch({
-                  type: "TOGGLE_LETTER",
-                  payload: { letter, budget: getTilePrice(price) },
-                });
-              }}
-            />
-          )),
+          letters.map((letter) => {
+            const variant = getTileVariant(letter, state);
+            const revealIndex = state.revealedLetters.findIndex(
+              (revealed) => revealed.letter === letter,
+            );
+            return (
+              <BoardTile
+                // The variant is part of the key so a tile that changes colour
+                // again (misplaced -> uncovered) remounts and replays the swipe.
+                key={`${letter}-${variant}`}
+                letter={letter}
+                variant={variant}
+                reveal={
+                  revealIndex === -1
+                    ? undefined
+                    : {
+                        index: revealIndex,
+                        from: state.revealedLetters[revealIndex].from,
+                      }
+                }
+                selectedPosition={getTileDisplayPosition(letter, state)}
+                onClick={() => {
+                  dispatch({
+                    type: "TOGGLE_LETTER",
+                    payload: { letter, budget: getTilePrice(price) },
+                  });
+                }}
+              />
+            );
+          }),
         )}
       </div>
     </div>

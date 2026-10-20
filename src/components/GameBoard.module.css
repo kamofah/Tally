@@ -4,6 +4,7 @@
     align-items: center;
     justify-content: center;
     width: 100%;
+    gap: 20px;
 }
 
 .costColumn {
@@ -15,11 +16,8 @@
 }
 
 .letterGrid {
-    max-width: 300px; 
-    min-width: 300px; 
-    display: flex; 
-    flex-wrap: wrap; 
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    grid-template-rows: repeat(5, auto);
     gap: 5px;
-    align-items: center; 
-    justify-content: flex-end; 
 }
