@@ -33,6 +33,10 @@ const Auth = () => {
             Email address
           </label>
           <input id="email" type="email" placeholder="Email" />
+          <label htmlFor="password" className={styles.label}>
+            Password
+          </label>
+          <input id="password" type="password" placeholder="Password" />
           <button
             className={`${styles.button} ${styles.buttonFilled}`}
             type="submit"
