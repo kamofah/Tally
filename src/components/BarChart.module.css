@@ -13,8 +13,8 @@
   .bar {
     min-width: 36px;
     height: 32px;
-    background: #787c7e;
-    color: white;
+    background: var(--disabled-state-color);
+    color: var(--on-state-color);
     display: flex;
     justify-content: flex-end;
     align-items: center;
@@ -23,5 +23,5 @@
   }
   
   .bar.active {
-    background: #6aaa64;
+    background: var(--success-state-color);
   }

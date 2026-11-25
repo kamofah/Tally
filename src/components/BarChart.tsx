@@ -16,7 +16,7 @@ const BarChart = ({ data }: { data: { guess: string; count: number }[] }) => {
                 backgroundColor:
                   item.count === max
                     ? "var(--success-state-color)"
-                    : "var(--gray-state-color)",
+                    : "var(--disabled-state-color)",
               }}
             >
               {item.count}
